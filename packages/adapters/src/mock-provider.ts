@@ -9,9 +9,12 @@ export function createMockProvider(script: ChatEvent[], delayMs = 100): ChatProv
       const timers: ReturnType<typeof setTimeout>[] = []
       script.forEach((e, i) => {
         timers.push(
-          setTimeout(() => {
-            if (!cancelled) onEvent(e)
-          }, (i + 1) * delayMs),
+          setTimeout(
+            () => {
+              if (!cancelled) onEvent(e)
+            },
+            (i + 1) * delayMs,
+          ),
         )
       })
       return {

@@ -45,7 +45,8 @@ const statusText = (status: string) =>
               <TooltipContent
                 class="z-50 max-w-xs rounded-md bg-slate-900 px-2.5 py-1.5 text-xs text-white shadow"
               >
-                {{ statusText(call.status) }}<template v-if="call.result"> · {{ call.result }}</template>
+                {{ statusText(call.status)
+                }}<template v-if="call.result"> · {{ call.result }}</template>
               </TooltipContent>
             </TooltipPortal>
           </TooltipRoot>

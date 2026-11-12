@@ -29,12 +29,12 @@ Adapter：AiSdkProvider | AgUiProvider | CustomProvider
 
 ## 包结构（Monorepo）
 
-| 包 | 说明 |
-|---|---|
-| `@ai-chat-ui/core` | Provider 抽象 + 事件规范 + `useChat` 等 composables（零依赖 AI SDK） |
-| `@ai-chat-ui/ui` | UI 组件（`Chat` / `Message`），依赖 core + reka-ui |
-| `@ai-chat-ui/adapters` | 后端适配器（当前 `createMockProvider`，后续 AiSdk / AgUi / Custom） |
-| `playground` | 开发调试用 Vite SPA |
+| 包                     | 说明                                                                 |
+| ---------------------- | -------------------------------------------------------------------- |
+| `@ai-chat-ui/core`     | Provider 抽象 + 事件规范 + `useChat` 等 composables（零依赖 AI SDK） |
+| `@ai-chat-ui/ui`       | UI 组件（`Chat` / `Message`），依赖 core + reka-ui                   |
+| `@ai-chat-ui/adapters` | 后端适配器（当前 `createMockProvider`，后续 AiSdk / AgUi / Custom）  |
+| `playground`           | 开发调试用 Vite SPA                                                  |
 
 ## 快速开始
 
@@ -84,18 +84,19 @@ const { text, toolCalls, streaming, error, start, stop } = useChat({ provider })
 
 ```ts
 type ChatEvent =
-  | { type: 'text-delta'; id: string; delta: string }                        // 正文增量
-  | { type: 'thinking'; text: string }                                       // 思考过程
-  | { type: 'tool-call-start'; id: string; name: string; args: string }      // 工具调用开始
-  | { type: 'tool-call-arg-delta'; id: string; delta: string }               // 参数增量
-  | { type: 'tool-call-end'; id: string; result: string;
-      status: 'ok' | 'error'; latencyMs: number }                            // 工具调用结束
-  | { type: 'step-status'; stepId: string;
-      status: 'queued' | 'running' | 'done' | 'failed' | 'cancelled' }       // 步骤状态
-  | { type: 'approval-request'; id: string; toolName: string;
-      args: unknown; summary: string }                                       // 请求审批
+  | { type: 'text-delta'; id: string; delta: string } // 正文增量
+  | { type: 'thinking'; text: string } // 思考过程
+  | { type: 'tool-call-start'; id: string; name: string; args: string } // 工具调用开始
+  | { type: 'tool-call-arg-delta'; id: string; delta: string } // 参数增量
+  | { type: 'tool-call-end'; id: string; result: string; status: 'ok' | 'error'; latencyMs: number } // 工具调用结束
+  | {
+      type: 'step-status'
+      stepId: string
+      status: 'queued' | 'running' | 'done' | 'failed' | 'cancelled'
+    } // 步骤状态
+  | { type: 'approval-request'; id: string; toolName: string; args: unknown; summary: string } // 请求审批
   | { type: 'error'; message: string }
-  | { type: 'done' }                                                         // 本轮结束
+  | { type: 'done' } // 本轮结束
 
 interface ChatProvider {
   subscribe(handlers: { onEvent(e: ChatEvent): void }): {
@@ -115,16 +116,16 @@ interface ChatProvider {
 
 ## 技术栈
 
-| 层 | 选型 |
-|---|---|
-| 语言 | TypeScript（strict） |
-| UI | Vue 3（Composition API） |
-| AI 底座 | Vercel AI SDK（`ai` + `@ai-sdk/vue`，经 Provider 层隔离） |
-| 无头基座 | reka-ui |
-| 样式 | Tailwind CSS v4 + CSS Variables |
-| 构建 | Vite lib mode |
-| 仓库 | pnpm Monorepo |
-| 测试 | Vitest + Vue Test Utils |
+| 层       | 选型                                                      |
+| -------- | --------------------------------------------------------- |
+| 语言     | TypeScript（strict）                                      |
+| UI       | Vue 3（Composition API）                                  |
+| AI 底座  | Vercel AI SDK（`ai` + `@ai-sdk/vue`，经 Provider 层隔离） |
+| 无头基座 | reka-ui                                                   |
+| 样式     | Tailwind CSS v4 + CSS Variables                           |
+| 构建     | Vite lib mode                                             |
+| 仓库     | pnpm Monorepo                                             |
+| 测试     | Vitest + Vue Test Utils                                   |
 
 ## 更多
 

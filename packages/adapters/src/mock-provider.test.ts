@@ -11,10 +11,7 @@ describe('createMockProvider', () => {
     vi.useFakeTimers()
     const received: ChatEvent[] = []
     const provider = createMockProvider(
-      [
-        { type: 'text-delta', id: '1', delta: 'A' },
-        { type: 'done' },
-      ],
+      [{ type: 'text-delta', id: '1', delta: 'A' }, { type: 'done' }],
       100,
     )
 

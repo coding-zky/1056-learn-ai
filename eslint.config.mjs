@@ -1,16 +1,12 @@
 import pluginVue from 'eslint-plugin-vue'
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
+import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import globals from 'globals'
 
 export default defineConfigWithVueTs(
   {
     name: 'app/ignores',
-    ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/coverage/**',
-      '**/*.d.ts',
-    ],
+    ignores: ['**/node_modules/**', '**/dist/**', '**/coverage/**', '**/*.d.ts'],
   },
   {
     name: 'app/globals',
@@ -34,4 +30,5 @@ export default defineConfigWithVueTs(
       'vue/max-attributes-per-line': 'off',
     },
   },
+  skipFormatting,
 )

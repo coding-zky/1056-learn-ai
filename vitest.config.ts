@@ -9,7 +9,9 @@ export default defineConfig({
     alias: {
       '@ai-chat-ui/core': fileURLToPath(new URL('./packages/core/src/index.ts', import.meta.url)),
       '@ai-chat-ui/ui': fileURLToPath(new URL('./packages/ui/src/index.ts', import.meta.url)),
-      '@ai-chat-ui/adapters': fileURLToPath(new URL('./packages/adapters/src/index.ts', import.meta.url)),
+      '@ai-chat-ui/adapters': fileURLToPath(
+        new URL('./packages/adapters/src/index.ts', import.meta.url),
+      ),
     },
   },
   test: {
