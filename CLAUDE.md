@@ -42,17 +42,31 @@ pnpm lint:fix
 - **Tailwind v4**：playground 的 `style.css` 用 `@source "../../packages/ui/src/**"` 显式扫描 ui 包源码；新增组件若类名不被扫描到，构建产物会缺样式。
 - **构建是 lib mode（ESM only）**：各包 `vite.config.ts` 里 external 了 peer 依赖（core external `vue`；ui external `vue`/`@ai-chat-ui/core`/`reka-ui`；adapters external `vue`/`@ai-chat-ui/core`）。
 
+## 测试
+
+- 单元测试用 Vitest, 放在对应模块的 ‘.test.ts’文件旁
+- 组件测试用 ‘@vue/test-utils’
+- 'pnpm test' 从根目录跑所有包的测试
+
 ## 代码修改规范
 
-不要删除你不确定是否使用的代码，先标记 TODO
+- 不要删除你不确定是否使用的代码，先标记 TODO
 
-不要重构你没有被要求重构的代码
+- 不要重构你没有被要求重构的代码
 
-不要修改你不直接相关的文件
+- 不要修改你不直接相关的文件
 
-每次改动只做被要求的事，不多不少
+- 每次改动只做被要求的事，不多不少
+- 修改前先阅读相关文件，理解上下文
 
-修改前先阅读相关文件，理解上下文
+## Git 提交规范
+
+- 使用 Conventional Commits 格式
+- commit message 使用中文 subject
+- subject 不超过 59字
+- body 说明“为什么改”而非“改了什么”
+- scope 使用模块名（button、input、theme、 docs)
+- 当用户要求提交代码的时候，尽可能只提交当前会话中相关的功能代码或文件
 
 ## 版本基线
 
