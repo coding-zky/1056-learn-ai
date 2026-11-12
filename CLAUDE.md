@@ -51,11 +51,8 @@ pnpm lint:fix
 ## 代码修改规范
 
 - 不要删除你不确定是否使用的代码，先标记 TODO
-
 - 不要重构你没有被要求重构的代码
-
 - 不要修改你不直接相关的文件
-
 - 每次改动只做被要求的事，不多不少
 - 修改前先阅读相关文件，理解上下文
 
@@ -67,6 +64,45 @@ pnpm lint:fix
 - body 说明“为什么改”而非“改了什么”
 - scope 使用模块名（button、input、theme、 docs)
 - 当用户要求提交代码的时候，尽可能只提交当前会话中相关的功能代码或文件
+
+## Git 分支与 PR 工作流
+
+采用 **GitHub Flow**：`main` 主干 + 短生命周期功能分支，一切改动经 PR 进入 `main`。
+
+### 分支命名
+
+从最新 `main` 切分支，格式 `<type>/<issue>-<短描述>`：
+
+- `feat/12-prompt-input`
+- `fix/15-streaming-perf`
+- `docs/setup-guide`
+- `chore/ci-setup`
+
+`type` 与 Conventional Commits 一致：`feat` / `fix` / `docs` / `chore` / `refactor` / `perf` / `test` / `build` / `ci` / `revert`。有对应 issue 时带上 issue 号，便于回溯。
+
+### 流程
+
+1. `git switch main && git pull` 拉到最新。
+2. 按上方规范切分支。
+3. 开发 + 提交（遵循「Git 提交规范」）。
+4. 推分支：`git push -u origin <分支名>`。
+5. 创建 PR 到 `main`（见下「对 Claude 的约定」）。
+6. review 通过后 **squash merge** 回 `main`，删除源分支。
+
+### 规则
+
+- **禁止直接 push 到 `main`**，一切改动走 PR。
+- 每个 PR 对应一个 issue；描述里用 `Closes #<号>` / `Refs #<号>` 关联。
+
+### 对 Claude 的约定（开发完成后的自动化）
+
+用户完成某 issue 的功能开发并提交后，Claude 需要：
+
+1. 检查 GitHub 最新 issues，定位本次改动对应的 issue；
+2. 在远端创建「当前功能分支 → `main`」的 PR；
+3. 编写 PR：
+   - **标题**：Conventional Commits 格式（与提交一致，如 `feat: 新增 PromptInput 组件`）；
+   - **描述**：变更概述 + 关联 issue（`Closes #<号>`）+ 测试/验证情况。
 
 ## 版本基线
 
