@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+/* 让 Tailwind 扫描 ui 包源码里的工具类（dev 走 alias，显式声明更稳）。
+   注意：style.css 位于 docs/.vitepress/theme/ 下，需上溯三级才到仓库根。 */
+@source '../../../packages/ui/src/**';
+
+@theme {
+  --color-brand: #4f46e5;
+}
