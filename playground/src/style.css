@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* 让 Tailwind 扫描 ui 包源码里的工具类（dev 走 alias，但显式声明更稳） */
+@source "../../packages/ui/src/**";
+
+@theme {
+  --color-brand: #4f46e5;
+}

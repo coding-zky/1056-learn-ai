@@ -1,0 +1,27 @@
+{
+  "name": "@ai-chat-ui/adapters",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@ai-chat-ui/core": "workspace:*",
+    "@ai-sdk/vue": "^4.0.170",
+    "ai": "^7.0.170"
+  },
+  "devDependencies": {
+    "vite": "^8.3.8"
+  }
+}
