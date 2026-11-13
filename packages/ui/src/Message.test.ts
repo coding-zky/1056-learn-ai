@@ -20,4 +20,17 @@ describe('Message', () => {
     const wrapper = mount(Message, { props: { content: 'abc', status: 'streaming' } })
     expect(wrapper.text()).toContain('▍')
   })
+
+  it('variant=chatgpt 时 user 用深色气泡', () => {
+    const wrapper = mount(Message, { props: { content: 'a', role: 'user', variant: 'chatgpt' } })
+    const bubble = wrapper.findAll('div')[1]
+    expect(bubble.classes()).toContain('bg-slate-900')
+    expect(bubble.classes()).not.toContain('bg-blue-600')
+  })
+
+  it('variant=chatgpt 时 assistant 无背景气泡', () => {
+    const wrapper = mount(Message, { props: { content: 'a', variant: 'chatgpt' } })
+    const bubble = wrapper.findAll('div')[1]
+    expect(bubble.classes()).not.toContain('bg-slate-100')
+  })
 })
