@@ -57,6 +57,10 @@ async function copy() {
   flex-wrap: wrap;
   gap: 12px;
   align-items: center;
+  /* 固定浅底隔离暗黑主题：库组件按 light 配色设计（如 ghost 的 text-slate-700），
+     暗色下透明背景会令深色文字/浅色组件不可读或刺眼 */
+  background: #f6f6f7;
+  color: #1f2328;
 }
 
 .demo-block__meta {

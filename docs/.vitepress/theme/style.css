@@ -1,4 +1,8 @@
-@import 'tailwindcss';
+/* important：Tailwind v4 把工具类包进 @layer utilities，而 VitePress 的 button 等 reset 是
+   无层（un-layered）样式；CSS 中层叠优先级「无层 > 有层」，导致库组件的 bg-blue-600/text-white
+   等工具类被 VitePress 的 color:inherit/background:transparent 覆盖、组件渲染无样式。
+   加 important 让工具类带 !important，压过 VitePress 的无层 reset。 */
+@import 'tailwindcss' important;
 
 /* 让 Tailwind 扫描 ui 包源码里的工具类（dev 走 alias，显式声明更稳）。
    注意：style.css 位于 docs/.vitepress/theme/ 下，需上溯三级才到仓库根。 */
