@@ -49,6 +49,9 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['@vue/repl'],
+    },
     resolve: {
       alias: {
         '@ai-chat-ui/core': fileURLToPath(

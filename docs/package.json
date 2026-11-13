@@ -12,6 +12,7 @@
     "@ai-chat-ui/adapters": "workspace:*",
     "@ai-chat-ui/core": "workspace:*",
     "@ai-chat-ui/ui": "workspace:*",
+    "@vue/repl": "^4.7.2",
     "reka-ui": "^2.11.0",
     "vue": "^3.5.45"
   },
