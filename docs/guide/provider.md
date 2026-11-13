@@ -10,14 +10,14 @@ title: 后端无关
 
 ```ts
 interface ChatProvider {
-  subscribe(handlers: { onEvent(e: ChatEvent): void }): {
+  subscribe(handlers: { input: string; onEvent(e: ChatEvent): void }): {
     unsubscribe(): void
     abort(): void
   }
 }
 ```
 
-`subscribe` 传入 `onEvent` 回调，返回 `unsubscribe`（解绑）与 `abort`（中止本轮）。
+`subscribe` 传入本轮用户输入 `input` 与 `onEvent` 回调，返回 `unsubscribe`（解绑）与 `abort`（中止本轮）。
 
 ## ChatEvent 契约（9 种）
 

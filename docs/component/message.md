@@ -21,9 +21,12 @@ import BasicMessageRaw from '../examples/message/basic.vue?raw'
 
 ### Props
 
-| 名称      | 类型     | 默认值 | 说明                 |
-| --------- | -------- | ------ | -------------------- |
-| `content` | `string` | —      | 消息文本内容（必填） |
+| 名称      | 类型                               | 默认值      | 说明                                           |
+| --------- | ---------------------------------- | ----------- | ---------------------------------------------- |
+| `content` | `string`                           | —           | 消息文本内容（必填）                           |
+| `role`    | `'user' \| 'assistant'`            | `assistant` | 消息角色，决定对齐与配色                       |
+| `status`  | `'streaming' \| 'done' \| 'error'` | `done`      | 状态；`streaming` 显示输入光标                 |
+| `variant` | `'default' \| 'chatgpt'`           | `default`   | 外观变体；`chatgpt` 为深色用户气泡 + AI 无背景 |
 
 ### Slots / Events
 

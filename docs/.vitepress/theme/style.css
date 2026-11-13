@@ -8,6 +8,10 @@
    注意：style.css 位于 docs/.vitepress/theme/ 下，需上溯三级才到仓库根。 */
 @source '../../../packages/ui/src/**';
 
+/* 全屏 Playground 的壳组件（Sidebar / ChatWindow / PlaygroundApp）用 Tailwind 工具类，
+   显式声明扫描本目录，避免未被自动检测而缺样式。 */
+@source './components/**';
+
 @theme {
   --color-brand: #4f46e5;
 }
