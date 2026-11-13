@@ -6,5 +6,5 @@ export interface ChatSubscription {
 }
 
 export interface ChatProvider {
-  subscribe(handlers: { onEvent: (e: ChatEvent) => void }): ChatSubscription
+  subscribe(handlers: { input: string; onEvent: (e: ChatEvent) => void }): ChatSubscription
 }

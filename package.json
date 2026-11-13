@@ -5,6 +5,8 @@
   "packageManager": "pnpm@10.34.4",
   "scripts": {
     "dev": "pnpm --filter playground dev",
+    "docs:dev": "pnpm --filter docs dev",
+    "docs:build": "pnpm --filter docs build",
     "build": "pnpm --filter @ai-chat-ui/core build && pnpm --filter @ai-chat-ui/ui build && pnpm --filter @ai-chat-ui/adapters build && pnpm --filter playground build",
     "test": "vitest run",
     "test:watch": "vitest",

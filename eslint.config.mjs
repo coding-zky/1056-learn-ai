@@ -6,7 +6,13 @@ import globals from 'globals'
 export default defineConfigWithVueTs(
   {
     name: 'app/ignores',
-    ignores: ['**/node_modules/**', '**/dist/**', '**/coverage/**', '**/*.d.ts'],
+    ignores: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/coverage/**',
+      '**/*.d.ts',
+      '**/.vitepress/cache/**',
+    ],
   },
   {
     name: 'app/globals',

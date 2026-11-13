@@ -13,7 +13,7 @@ function providerFrom(events: ChatEvent[]): ChatProvider {
 }
 
 describe('Chat', () => {
-  it('点击发送后渲染文本与工具调用 chip', async () => {
+  it('发送消息后渲染用户消息、助手回复与工具调用', async () => {
     const wrapper = mount(Chat, {
       props: {
         provider: providerFrom([
@@ -25,8 +25,10 @@ describe('Chat', () => {
       },
     })
 
+    await wrapper.get('textarea').setValue('查航班')
     await wrapper.get('button').trigger('click')
 
+    expect(wrapper.text()).toContain('查航班')
     expect(wrapper.text()).toContain('你好，世界')
     expect(wrapper.text()).toContain('search_flights')
   })
